@@ -15,11 +15,12 @@ $borderLeftColor: #58b5fc;
   justify-content: flex-end;
   padding: 25px 8px 0 0;
   cursor: pointer;
-  font-size: 2rem
+  font-size: 2rem;
+  color: #fff;
 }
 .navbar__list {
   list-style-type: none;
-  margin-left: -20px;
+  margin-left: -25px;
   font-size: 1.5rem;
 }
 .navbar__li {

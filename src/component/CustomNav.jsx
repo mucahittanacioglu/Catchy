@@ -25,7 +25,7 @@ const CustomNav = ({ li }) => {
               alt={item[1]}
               style={{ paddingLeft: window === false ? 27 : 17 }}
             /> */}
-            {item[1]}
+            <span style={{color:"white"}} >{item[1]}</span>
             <li
               className="navbar__li"
               style={{ display: window === false ? "inline-block" : "none" }}
