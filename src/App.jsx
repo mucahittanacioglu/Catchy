@@ -8,10 +8,10 @@ import 'react-bootstrap/dist/react-bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Col, Container, Row} from "react-bootstrap";
 
+//TODO:Need Log-in and Sing-up page.
 function App() {
     return (
         <>
-
             <Container>
                 <Row>
                     <Col>
@@ -30,7 +30,6 @@ function App() {
                     </Col>
                 </Row>
             </Container>
-
         </>
     )
 }
