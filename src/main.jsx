@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import configureAppStore from "./component/redux/reducers/configureAppStore.js";
 import {Provider} from "react-redux";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 const store = configureAppStore();
 
