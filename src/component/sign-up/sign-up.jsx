@@ -7,14 +7,13 @@ import {
     MDBCard,
     MDBCardBody,
     MDBInput,
-    MDBCheckbox,
-    MDBIcon
+    MDBCheckbox
 } from 'mdb-react-ui-kit';
 import './sign-up.css';
 
 const Login = () => {
     return (
-        <div>
+        <div className="signUpSide">
             <MDBContainer fluid className='p-4'>
 
                 <MDBRow>

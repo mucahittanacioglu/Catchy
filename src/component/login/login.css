@@ -1,5 +1,5 @@
-*{
-    margin: auto;
+.loginSide{
+    margin: auto; !important;
 }
 .gradient-custom-2 {
     /* fallback for old browsers */

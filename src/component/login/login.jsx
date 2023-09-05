@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 
 const Login = () => {
     return (
-        <div>
+        <div className="loginSide">
             <MDBContainer className="my-5 gradient-form">
 
                 <MDBRow>
