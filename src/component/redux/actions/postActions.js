@@ -7,3 +7,7 @@ export function setRemainingChars(textLength){
 export function createPost(typedPost) {
     return {type:actionTypes.CREATE_POST, payload:typedPost}
 }
+
+export function login(jwt) {
+    return {type:actionTypes.LOGIN, payload:jwt}
+}

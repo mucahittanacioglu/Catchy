@@ -17,3 +17,12 @@ export function createdPostReducer(state = [], action = {}) {
             return state;
     }
 }
+
+export function loginReducer(state = "", action = {}) {
+    switch (action.type) {
+        case actionTypes.LOGIN:
+            return action.payload;
+        default:
+            return state;
+    }
+}

@@ -8,8 +8,15 @@ import {
 } from 'mdb-react-ui-kit';
 import './login.css';
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as postActions from "../redux/actions/postActions.js";
 
-const Login = () => {
+const Login = (props) => {
+    const handleLogin = () => {
+        props.actions.setJwt("başarıyla girdiniz.");
+    }
+
     return (
         <div className="loginSide">
             <MDBContainer className="my-5 gradient-form">
@@ -33,7 +40,7 @@ const Login = () => {
 
 
                             <div className="text-center pt-1 mb-5 pb-1">
-                                <MDBBtn className="mb-4 w-100 gradient-custom-2">Sign in</MDBBtn>
+                                <MDBBtn className="mb-4 w-100 gradient-custom-2" onClick={handleLogin}>Login</MDBBtn>
                                 <a className="text-muted" href="#!">Forgot password?</a>
                             </div>
 
@@ -57,6 +64,7 @@ const Login = () => {
                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                 </p>
+                                <h1>{props.login}</h1>
                             </div>
 
                         </div>
@@ -70,4 +78,21 @@ const Login = () => {
     );
 };
 
-export default Login;
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: {
+            setJwt: bindActionCreators(postActions.login, dispatch)
+        }
+    };
+}
+
+function mapStateToProps(state) {
+    return {
+        login: state.login
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login);
