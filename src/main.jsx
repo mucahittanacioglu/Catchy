@@ -5,14 +5,16 @@ import './index.css'
 import configureAppStore from "./component/redux/reducers/configureAppStore.js";
 import {Provider} from "react-redux";
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import {BrowserRouter} from "react-router-dom";
 
 const store = configureAppStore();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <Provider store={store}>
-
-            <App/>
-        </Provider>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </BrowserRouter>
     </React.StrictMode>,
 )

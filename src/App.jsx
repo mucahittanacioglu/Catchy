@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Col, Container, Row} from "react-bootstrap";
 import PostBody from "./component/post/createPost/CreatePost.jsx";
 import Login from "./component/login/login.jsx";
+import SignUp from "./component/sign-up/sign-up.jsx";
+import {Routes, Route} from 'react-router-dom';
 
 //TODO:Need Log-in and Sing-up page.
 function App() {
@@ -31,7 +33,10 @@ function App() {
                     </Col>
                 </Row>
             </Container>*/}
-            <Login/>
+            <Routes>
+                <Route path="/" element={<Login/>}/>
+                <Route path="signup" element={<SignUp/>}/>
+            </Routes>
         </>
     )
 }
