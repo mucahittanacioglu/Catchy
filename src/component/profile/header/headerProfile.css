@@ -1,0 +1,27 @@
+.colorInput {
+    margin-right: -50px;
+    width: 50px;
+    height: 30px;
+    border-radius: 50px;
+}
+
+.photo-row {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 1s ease, max-height 1s ease;
+}
+
+.photo-row.show-photos {
+    opacity: 1;
+    max-height: none;
+}
+
+.profilePage {
+    position: absolute;
+    top: 50%;
+    transform: translate(130%, -50%);
+    width: 600px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

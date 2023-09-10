@@ -1,16 +1,11 @@
 import {
-    MDBCol,
-    MDBContainer,
-    MDBRow,
-    MDBCard,
     MDBCardText,
-    MDBCardBody,
     MDBCardImage,
     MDBBtn,
     MDBTypography
 } from 'mdb-react-ui-kit';
 import {useState} from "react";
-import './profile.css'
+import './headerProfile.css'
 const ProfileHeader = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [name, setName] = useState('Andy Horwitz');
@@ -19,7 +14,17 @@ const ProfileHeader = () => {
     const [photo, setPhoto] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp');
     const [newPhoto, setNewPhoto] = useState('');
 
+
+    const handleEditClick = () => {
+        setIsEditing(true);
+    };
+
+    const handleSaveClick = () => {
+        setIsEditing(false);
+    }
+
     return (
+
         <div>
             <div className="rounded-top text-white d-flex flex-row"
                  style={{backgroundColor: backgroundColor, height: '200px'}}>
