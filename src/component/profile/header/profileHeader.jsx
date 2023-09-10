@@ -4,95 +4,99 @@ import {
     MDBBtn,
     MDBTypography
 } from 'mdb-react-ui-kit';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import './headerProfile.css'
-const ProfileHeader = () => {
-    const [isEditing, setIsEditing] = useState(false);
+import {Button} from "@mui/material";
+
+const ProfileHeader = ({isEditing}) => {
+
     const [name, setName] = useState('Andy Horwitz');
     const [city, setCity] = useState('New York');
     const [backgroundColor, setBackgroundColor] = useState('#000');
-    const [photo, setPhoto] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp');
-    const [newPhoto, setNewPhoto] = useState('');
+    const [photo, setPhoto] = useState();
+    const [newPhoto, setNewPhoto] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp');
+    const uploadPhoto = (e) => {
+        setNewPhoto(URL.createObjectURL(e.target.files[0]));
 
-
-    const handleEditClick = () => {
-        setIsEditing(true);
-    };
-
-    const handleSaveClick = () => {
-        setIsEditing(false);
     }
-
+    useEffect(() => {
+        setPhoto(newPhoto);
+    }, [isEditing]);
     return (
 
         <div>
             <div className="rounded-top text-white d-flex flex-row"
                  style={{backgroundColor: backgroundColor, height: '200px'}}>
+
                 {isEditing ? (
-                    <input
-                        type="color"
-                        value={backgroundColor}
-                        onChange={(e) => setBackgroundColor(e.target.value)}
-                        className="colorInput"
-                    />
-                ) : (
-                    null
-                )}
-                <div className="ms-4 mt-5 d-flex flex-column" style={{width: '150px'}}>
-                    {isEditing ? (
-                        <div>
+                    <>
+                        <div className="ms-4 mt-5 d-flex flex-column" style={{width: '150px'}}>
                             <input
-                                type="file"
+                                type="color"
+                                value={backgroundColor}
+                                onChange={(e) => setBackgroundColor(e.target.value)}
+                                className="colorInput"
+                            />
+
+                            <MDBCardImage
+                                src={photo}
+                                alt="Generic placeholder image"
+                                fluid
+                                className="mt-4 mb-2 img-thumbnail"
+                                style={{width: '50px', height: '50', objectFit: 'cover', zIndex: '1'}}/>
+
+                            <input
                                 accept="image/*"
-                                onChange={(e) => setNewPhoto(URL.createObjectURL(e.target.files[0]))}/>
+                                style={{display: 'none'}}
+                                id="raised-button-file"
+                                type="file"
+                                onChange={uploadPhoto}
+                            />
+                            <label htmlFor="raised-button-file">
+                                <Button variant="raised" component="span">
+                                    Upload
+                                </Button>
+                            </label>
+                            {/*<input*/}
+                            {/*    type="file"*/}
+                            {/*    accept="image/*"*/}
+                            {/*    onChange={(e) => setNewPhoto(URL.createObjectURL(e.target.files[0]))}/>*/}
+                            {/*<button onClick={() => setPhoto(newPhoto)}>Upload</button>*/}
                         </div>
-                    ) : (
-                        <MDBCardImage
-                            src={photo}
-                            alt="Generic placeholder image"
-                            fluid
-                            className="mt-4 mb-2 img-thumbnail"
-                            style={{width: '150px', height: '150px', objectFit:'cover', zIndex: '1'}}/>
+                        <div className="ms-3" style={{marginTop: '130px'}}>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}/>
+                            <input
+                                type="text"
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}/>
 
-                    )}
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div className="ms-4 mt-5 d-flex flex-column" style={{width: '150px'}}>
+                            <MDBCardImage
+                                src={photo}
+                                alt="Generic placeholder image"
+                                fluid
+                                className="mt-4 mb-2 img-thumbnail"
+                                style={{width: '150px', height: '150px', objectFit: 'cover', zIndex: '1'}}/>
+                        </div>
+                        <div className="ms-3" style={{marginTop: '130px'}}>
+                            <MDBTypography tag="h5">{name}</MDBTypography>
+                            <MDBCardText>{city}</MDBCardText>
+                        </div>
+                    </>
+                )}
 
-                    {isEditing && (
-                        <button onClick={() => setPhoto(newPhoto)}>Upload</button>
-                    )}
 
-
-                    {!isEditing && (
-                        <MDBBtn outline color="dark" onClick={handleEditClick} style={{height: '36px', overflow: 'visible'}}>
-                            Edit profile
-                        </MDBBtn>
-
-                    )}
-                </div>
-                <div className="ms-3" style={{marginTop: '130px'}}>
-                    {isEditing ? (
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}/>
-                    ) : (
-                        <MDBTypography tag="h5">{name}</MDBTypography>
-                    )}
-                    {isEditing ? (
-                        <input
-                            type="text"
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}/>
-                    ) : (
-                        <MDBCardText>{city}</MDBCardText>
-                    )}
-                </div>
             </div>
+
+
             <div className="p-4 text-black" style={{backgroundColor: '#f8f9fa'}}>
-                {isEditing ? (
-                    <MDBBtn outline color="success" onClick={handleSaveClick} style={{height: '36px', overflow: 'visible'}}>
-                        Update
-                    </MDBBtn>
-                ) : null}
                 <div className="d-flex justify-content-end text-center py-1">
                     <div>
                         <MDBCardText className="mb-1 h5">253</MDBCardText>

@@ -12,35 +12,29 @@ import ProfileBody from "./body/profileBody.jsx";
 
 const Profile = () => {
     const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState('Andy Horwitz');
-    const [city, setCity] = useState('New York');
-    const [backgroundColor, setBackgroundColor] = useState('#000');
-    const [photo, setPhoto] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp');
-    const [newPhoto, setNewPhoto] = useState('');
-    const [about, setAbout] = useState('Benim hakkımda');
-    const [showAllPhotos, setShowAllPhotos] = useState(false);
-
-
-    const handleEditClick = () => {
-        setIsEditing(true);
-    };
-
-    const handleSaveClick = () => {
-        setIsEditing(false);
-    }
-
+    //TODO: child state leri update olduktan sonra burda tut
+    //TODO: güncellenmiş en son profil verilerini reduxa yaz
     return (
         <div className="profilePage ">
             <MDBContainer className="py-5 justify-content-center align-items-center h-100 mx-5">
                 <MDBRow>
                     <MDBCard>
                         <MDBCardBody className="text-black p-4">
-                            <ProfileHeader/>
-                            <ProfileBody/>
+                            <ProfileHeader isEditing={isEditing}/>
+                            <ProfileBody isEditing={isEditing}/>
                             <ProfileFooter/>
-                            <MDBBtn outline color="dark" onClick={handleEditClick} style={{height: '36px', overflow: 'visible'}}>
-                                Edit profile
-                            </MDBBtn>
+                            {
+                                isEditing ? (
+                                    <MDBBtn outline color="success" onClick={() => setIsEditing(false)}
+                                            style={{height: '36px', overflow: 'visible'}}>
+                                        Update profile
+                                    </MDBBtn>
+                                ) : (
+                                    <MDBBtn outline color="dark" onClick={() => setIsEditing(true)}
+                                            style={{height: '36px', overflow: 'visible'}}>
+                                        Edit profile
+                                    </MDBBtn>)
+                            }
                         </MDBCardBody>
                     </MDBCard>
                 </MDBRow>

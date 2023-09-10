@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import {MDBCardText} from "mdb-react-ui-kit";
 import './bodyProfile.css'
 
-const ProfileBody = () => {
-    const [isEditing, setIsEditing] = useState(false);
+const ProfileBody = ({isEditing}) => {
     const [about, setAbout] = useState('Benim hakkımda');
 
     return (
