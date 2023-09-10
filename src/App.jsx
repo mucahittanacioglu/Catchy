@@ -8,8 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Col, Container, Row} from "react-bootstrap";
 import Login from "./component/login/login.jsx";
 import SignUp from "./component/sign-up/sign-up.jsx";
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Link} from 'react-router-dom';
 import CreatePost from "./component/post/createPost/CreatePost.jsx";
+import Profile from "./component/profile/profile.jsx"
 
 //TODO:Need Log-in and Sing-up page.
 function App() {
@@ -18,11 +19,11 @@ function App() {
             <Routes>
                 <Route path="/main" element={<Container>
                     <Row>
-                        <Col>
+                        <Col style={{marginLeft:-12}}>
                             <CustomNav
                                 li={[
                                     ["Dashboard", <AiFillDashboard/>],
-                                    ["Profile", <AiOutlineUser/>],
+                                    ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
                                     ["Messages", <BiMessageAlt/>],
                                     ["Notifications", <AiOutlineNotification/>],
                                     ["Search", <BsSearch/>]
@@ -36,6 +37,26 @@ function App() {
                 </Container>}/>
                 <Route path="/" element={<Login/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/profile" element={<Container>
+                    <Row>
+                        <Col xs={3} style={{marginLeft:-12}}>
+                            <CustomNav
+                                li={[
+                                    ["Dashboard", <Link to="/main"><AiFillDashboard/></Link>],
+                                    ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
+                                    ["Messages", <BiMessageAlt/>],
+                                    ["Notifications", <AiOutlineNotification/>],
+                                    ["Search", <BsSearch/>]
+                                ]}
+                            />
+                        </Col>
+                        <Col xs={9}>
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                                <Profile />
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>}/>
             </Routes>
         </>
     )
