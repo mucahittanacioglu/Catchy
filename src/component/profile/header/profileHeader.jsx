@@ -14,6 +14,7 @@ import {bindActionCreators} from "redux";
 const ProfileHeader = (props) => {
 
     const {isEditing} = props;
+    const {profilePhoto} = props;
 
     const [name, setName] = useState('Andy Horwitz');
     const [city, setCity] = useState('New York');
