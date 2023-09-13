@@ -11,3 +11,7 @@ export function createPost(typedPost) {
 export function login(jwt) {
     return {type:actionTypes.LOGIN, payload:jwt}
 }
+
+export function setProfilePhoto(photoURL) {
+    return {type:actionTypes.SET_PROFILE_PHOTO, payload:photoURL}
+}

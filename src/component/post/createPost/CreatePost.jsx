@@ -31,7 +31,7 @@ const CreatePost = (props) => {
                 <div className="personPhoto">
                 <span>
                 <img
-                    src="https://cdn.vectorstock.com/i/preview-1x/85/94/person-gray-photo-placeholder-man-silhouette-sign-vector-23838594.jpg"
+                    src={props.profilePhoto}
                     alt="person"/>
             </span>
                 </div>
@@ -74,7 +74,8 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
     return {
         counter: state.post,
-        createdPost: state.typedPost
+        createdPost: state.typedPost,
+        profilePhoto: state.setProfilePhoto
     };
 }
 

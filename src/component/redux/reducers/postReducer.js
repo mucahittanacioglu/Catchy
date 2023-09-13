@@ -1,4 +1,5 @@
 import * as actionTypes from "../actions/actionTypes"
+import initialState from "./initialState.js";
 
 export default function postReducer(state=0,action={}){
     switch (action.type) {
@@ -26,3 +27,14 @@ export function loginReducer(state = "", action = {}) {
             return state;
     }
 }
+
+export function photoReducer(state = initialState.profilePhoto, action = {}) {
+    switch (action.type) {
+        case actionTypes.SET_PROFILE_PHOTO:
+            console.log('Profile photo updated:', action.payload);
+            return action.payload;
+        default:
+            return state;
+    }
+}
+

@@ -7,21 +7,28 @@ import {
 import {useEffect, useState} from "react";
 import './headerProfile.css'
 import {Button} from "@mui/material";
+import * as postActions from "../../redux/actions/postActions.js";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
-const ProfileHeader = ({isEditing}) => {
+const ProfileHeader = (props) => {
+
+    const {isEditing} = props;
 
     const [name, setName] = useState('Andy Horwitz');
     const [city, setCity] = useState('New York');
     const [backgroundColor, setBackgroundColor] = useState('#000');
-    const [photo, setPhoto] = useState();
-    const [newPhoto, setNewPhoto] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp');
+    /*const [photo, setPhoto] = useState();*/
+    /*const [newPhoto, setNewPhoto] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp');*/
     const uploadPhoto = (e) => {
-        setNewPhoto(URL.createObjectURL(e.target.files[0]));
+        const newPhotoURL = URL.createObjectURL(e.target.files[0]);
+
+        props.actions.setProfilePhoto(newPhotoURL);
 
     }
-    useEffect(() => {
+   /* useEffect(() => {
         setPhoto(newPhoto);
-    }, [isEditing]);
+    }, [isEditing]);*/
     return (
 
         <div>
@@ -39,7 +46,7 @@ const ProfileHeader = ({isEditing}) => {
                             />
 
                             <MDBCardImage
-                                src={photo}
+                                src={props.profilePhoto}
                                 alt="Generic placeholder image"
                                 fluid
                                 className="mt-4 mb-2 img-thumbnail"
@@ -53,7 +60,7 @@ const ProfileHeader = ({isEditing}) => {
                                 onChange={uploadPhoto}
                             />
                             <label htmlFor="raised-button-file">
-                                <Button variant="raised" component="span">
+                                <Button type="button" variant="raised" component="span">
                                     Upload
                                 </Button>
                             </label>
@@ -79,7 +86,7 @@ const ProfileHeader = ({isEditing}) => {
                     <>
                         <div className="ms-4 mt-5 d-flex flex-column" style={{width: '150px'}}>
                             <MDBCardImage
-                                src={photo}
+                                src={props.profilePhoto}
                                 alt="Generic placeholder image"
                                 fluid
                                 className="mt-4 mb-2 img-thumbnail"
@@ -116,4 +123,20 @@ const ProfileHeader = ({isEditing}) => {
     );
 };
 
-export default ProfileHeader;
+
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: {
+            setProfilePhoto: bindActionCreators(postActions.setProfilePhoto, dispatch)
+        }
+    };
+}
+
+function mapStateToProps (state)  {
+    return {
+        profilePhoto: state.setProfilePhoto
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileHeader);

@@ -1,10 +1,11 @@
-import postReducer, {createdPostReducer, loginReducer} from "./postReducer.js";
+import postReducer, {createdPostReducer, loginReducer, photoReducer} from "./postReducer.js";
 import {combineReducers} from "redux";
 
 const rootReducer = combineReducers({
     post:postReducer,
     typedPost: createdPostReducer,
-    login: loginReducer
+    login: loginReducer,
+    setProfilePhoto: photoReducer
 });
 
 export default rootReducer;
