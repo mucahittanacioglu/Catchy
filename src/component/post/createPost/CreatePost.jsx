@@ -46,11 +46,17 @@ const CreatePost = (props) => {
                     <h6>{props.counter}</h6>
                 </div>
             </div>
-            <div>
+            <div className="postManager">
                 <h4>Posts</h4>
                 {props.createdPost.map((post) => {
                     return (
-                        <div key={post}>
+                        <div key={post} className="postedDiv">
+                            <span>
+                                <img
+                                src={props.profilePhoto}
+                                alt="person2"
+                                style={{width:120, height: 120}}/>
+                            </span>
                                 <div>{post}</div>
                         </div>
                 )

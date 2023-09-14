@@ -32,6 +32,25 @@
     padding: 5px;
 }
 
+.postManager {
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+.postedDiv {
+    display: flex;
+    border: 2px solid beige;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.postedDiv img {
+    border: 1px solid blue;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
 
 
 

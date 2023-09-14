@@ -22,9 +22,9 @@ function App() {
                         <Col style={{marginLeft:-12}}>
                             <CustomNav
                                 li={[
-                                    ["Dashboard", <AiFillDashboard/>],
+                                    ["Dashboard", <Link to="/main"><AiFillDashboard/></Link>],
                                     ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
-                                    ["Messages", <BiMessageAlt/>],
+                                    ["Messages", <Link to="/messages"><BiMessageAlt/></Link>],
                                     ["Notifications", <AiOutlineNotification/>],
                                     ["Search", <BsSearch/>]
                                 ]}
@@ -44,7 +44,7 @@ function App() {
                                 li={[
                                     ["Dashboard", <Link to="/main"><AiFillDashboard/></Link>],
                                     ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
-                                    ["Messages", <BiMessageAlt/>],
+                                    ["Messages", <Link to="/messages"><BiMessageAlt/></Link>],
                                     ["Notifications", <AiOutlineNotification/>],
                                     ["Search", <BsSearch/>]
                                 ]}

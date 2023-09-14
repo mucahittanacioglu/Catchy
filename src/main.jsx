@@ -23,7 +23,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = configureStore({reducer: persistedReducer, middleware: [thunk]});
 const persistor = persistStore(store);
 
-/*persistor.purge();*/ // to reset saved datas.
+persistor.purge(); // to reset saved datas.
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
