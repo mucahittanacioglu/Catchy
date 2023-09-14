@@ -1,0 +1,8 @@
+.mainContainer {
+    position: absolute;
+    top: 50%;
+    transform: translate(130%, -50%);
+    width: 600px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
