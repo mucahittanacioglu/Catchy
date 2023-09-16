@@ -31,7 +31,10 @@ const CreatePost = (props) => {
             </span>
                 </div>
                 <div>
-                    <textarea value={value} onChange={handleChange} style={{width: "300px", height: "150px"}} maxLength={maxChar}/>
+                    <textarea value={value}
+                              onChange={handleChange}
+                              style={{width: "300px", height: "150px"}}
+                              maxLength={maxChar}/>
                 </div>
                 <div className="icons">
                     <button onClick={handleSend}><AiOutlineSend className="icon"/></button>
@@ -45,13 +48,13 @@ const CreatePost = (props) => {
                         <div key={post} className="postedDiv">
                             <span>
                                 <img
-                                src={props.profilePhoto}
-                                alt="person2"
-                                style={{width:120, height: 120}}/>
+                                    src={props.profilePhoto}
+                                    alt="person2"
+                                    style={{width: 120, height: 120}}/>
                             </span>
-                                <div>{post}</div>
+                            <div className="postText">{post}</div>
                         </div>
-                )
+                    )
                 })}
             </div>
         </>
@@ -71,13 +74,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        counter: state.post,
-        createdPost: state.typedPost,
-        profilePhoto: state.setProfilePhoto
+        counter: state.post, createdPost: state.typedPost, profilePhoto: state.setProfilePhoto
     };
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(CreatePost);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePost);

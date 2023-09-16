@@ -47,6 +47,11 @@
     border-radius: 10px;
 }
 
+.postText {
+    max-width: 550px;
+    word-wrap: break-word;
+}
+
 .postedDiv img {
     border: 1px solid blue;
     padding: 5px;

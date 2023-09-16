@@ -14,6 +14,9 @@ import Profile from "./component/profile/profile.jsx"
 import Message from "./component/message/message.jsx";
 import Notifications from "./component/notifications/notifications.jsx";
 import {useState} from "react";
+import Settings from "./component/settings/settings.jsx";
+import {Grid} from "@mui/material";
+import Chat from "./component/chat/chat.jsx";
 
 //TODO:Need Log-in and Sing-up page.
 function App() {
@@ -33,13 +36,16 @@ function App() {
                             {isActive ? (<Col xs={3}>
                                 <Notifications
                                     li={[
-                                        ["Dashboard", <Link to="/main"><AiFillDashboard/></Link>],
-                                        ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
-                                        ["Messages", <Link to="/messages"><BiMessageAlt/></Link>],
                                         ["Notifications", <AiOutlineNotification onClick={handleNotifications}/>],
                                         ["Bildirim 1", <AiFillHeart/>],
                                         ["Bildirim 2", <AiFillHeart/>],
-                                        ["Bildirim 3", <AiFillHeart/>]
+                                        ["Bildirim 3", <AiFillHeart/>],
+                                        ["Bildirim 4", <AiFillHeart/>],
+                                        ["Bildirim 5", <AiFillHeart/>],
+                                        ["Bildirim 6", <AiFillHeart/>],
+                                        ["Bildirim 7", <AiFillHeart/>],
+                                        ["Bildirim 8", <AiFillHeart/>],
+                                        ["Bildirim 9", <AiFillHeart/>]
                                     ]}
                                 />
                             </Col>): (
@@ -49,17 +55,27 @@ function App() {
                                         ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
                                         ["Messages", <Link to="/messages"><BiMessageAlt/></Link>],
                                         ["Notifications",<AiOutlineNotification onClick={handleNotifications}/>],
-                                        ["Search", <BsSearch/>]
+                                        [<input type="text"/>, <BsSearch/>],
+                                        [<Settings style={{marginTop:"auto"}}/>]
                                     ]}
                                 />
                             )}
+
                         </Col>
                         <Col>
                             <CreatePost/>
                         </Col>
                     </Row>
                 </Container>}/>
-                <Route path="/" element={<Login/>}/>
+                <Route path="/" element={
+                    <div className="loginPage">
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <Login/>
+                            </Grid>
+                        </Grid>
+                    </div>
+                        }/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/profile" element={<Container>
                     <Row>
@@ -67,13 +83,16 @@ function App() {
                             {isActive ? (<Col xs={3}>
                                 <Notifications
                                     li={[
-                                        ["Dashboard", <Link to="/main"><AiFillDashboard/></Link>],
-                                        ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
-                                        ["Messages", <Link to="/messages"><BiMessageAlt/></Link>],
                                         ["Notifications", <AiOutlineNotification onClick={handleNotifications}/>],
                                         ["Bildirim 1", <AiFillHeart/>],
                                         ["Bildirim 2", <AiFillHeart/>],
-                                        ["Bildirim 3", <AiFillHeart/>]
+                                        ["Bildirim 3", <AiFillHeart/>],
+                                        ["Bildirim 4", <AiFillHeart/>],
+                                        ["Bildirim 5", <AiFillHeart/>],
+                                        ["Bildirim 6", <AiFillHeart/>],
+                                        ["Bildirim 7", <AiFillHeart/>],
+                                        ["Bildirim 8", <AiFillHeart/>],
+                                        ["Bildirim 9", <AiFillHeart/>]
                                     ]}
                                 />
                             </Col>): (
@@ -83,7 +102,9 @@ function App() {
                                         ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
                                         ["Messages", <Link to="/messages"><BiMessageAlt/></Link>],
                                         ["Notifications",<AiOutlineNotification onClick={handleNotifications}/>],
-                                        ["Search", <BsSearch/>]
+                                        [<input type="text"/>, <BsSearch/>],
+                                        [<Settings style={{marginTop:"auto"}}/>]
+
                                     ]}
                                 />
                             )}
@@ -95,40 +116,42 @@ function App() {
                         </Col>
                     </Row>
                 </Container>}/>
-                <Route path="/messages" element={<Container>
-                    <Row>
-                        <Col xs={3} style={{marginLeft:-12}}>
-                            {isActive ? (<Col xs={3}>
+                <Route path="messages" element={<Grid container spacing={14}>
+                        <Grid item xs={3}>
+                            {isActive ? (<Grid item xs={3}>
                                 <Notifications
                                     li={[
-                                        ["Dashboard", <Link to="/main"><AiFillDashboard/></Link>],
-                                        ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
-                                        ["Messages", <Link to="/messages"><BiMessageAlt/></Link>],
                                         ["Notifications", <AiOutlineNotification onClick={handleNotifications}/>],
                                         ["Bildirim 1", <AiFillHeart/>],
                                         ["Bildirim 2", <AiFillHeart/>],
-                                        ["Bildirim 3", <AiFillHeart/>]
+                                        ["Bildirim 3", <AiFillHeart/>],
+                                        ["Bildirim 4", <AiFillHeart/>],
+                                        ["Bildirim 5", <AiFillHeart/>],
+                                        ["Bildirim 6", <AiFillHeart/>],
+                                        ["Bildirim 7", <AiFillHeart/>],
+                                        ["Bildirim 8", <AiFillHeart/>],
+                                        ["Bildirim 9", <AiFillHeart/>]
                                     ]}
                                 />
-                            </Col>): (
+                            </Grid>): (
                                 <CustomNav
                                     li={[
                                         ["Dashboard", <Link to="/main"><AiFillDashboard/></Link>],
                                         ["Profile", <Link to="/profile"><AiOutlineUser/></Link>],
                                         ["Messages", <Link to="/messages"><BiMessageAlt/></Link>],
                                         ["Notifications",<AiOutlineNotification onClick={handleNotifications}/>],
-                                        ["Search", <BsSearch/>]
+                                        [<input type="text"/>, <BsSearch/>],
+                                        [<Settings style={{marginTop:"auto"}}/>]
                                     ]}
                                 />
                             )}
-                        </Col>
-                        <Col xs={9}>
-                            <div>
-                                <Message />
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>}/>
+                        </Grid>
+                        <Grid item xs={9}>
+                            <Message/>
+                        </Grid>
+                    </Grid>
+                }/>
+                <Route path="/chat" element={<Chat/>}/>
             </Routes>
         </>
     )

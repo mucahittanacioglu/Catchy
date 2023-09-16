@@ -1,3 +1,4 @@
+/*
 .mainContainer {
     position: absolute;
     top: 50%;
@@ -5,4 +6,12 @@
     width: 600px;
     margin-top: 25px;
     margin-bottom: 25px;
+}*/
+
+.mainContainer {
+    width: 1400px !important;
+    height: 900px;
+    background-color: blue;
+    border-radius: 10px;
+    padding: 20px;
 }

@@ -1,5 +1,6 @@
 import  { useState } from "react";
 import {CiMenuBurger} from "react-icons/ci"
+import {BiArrowBack} from "react-icons/bi";
 
 const Notifications = ({ li }) => {
     const [window, setWindow] = useState(false);
@@ -19,11 +20,6 @@ const Notifications = ({ li }) => {
             <ul className="navbar__list">
                 {li.map((item, i) => (
                     <div className="navbar__li-box" key={i}>
-                        {/* <img
-              src={item[1]}
-              alt={item[1]}
-              style={{ paddingLeft: window === false ? 27 : 17 }}
-            /> */}
                         <span style={{color:"white"}} >{item[1]}</span>
                         <li
                             className="navbar__li"
