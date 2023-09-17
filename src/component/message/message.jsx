@@ -8,10 +8,11 @@ import {
     ListItem,
     ListItemAvatar,
     ListItemText,
-    Paper, TextField,
+    Paper,
     Typography
 } from "@mui/material";
 import './message.css'
+import Chat from "../chat/chat.jsx";
 
 const Message = () => {
 
@@ -26,7 +27,7 @@ const Message = () => {
         >
             <Grid container  spacing={3} sx={{width: 1400,
                 height: 900,
-                backgroundColor: "blue",
+                backgroundColor: "beige",
                 borderRadius: 10,
                 padding: "20px"}}
             >
@@ -79,7 +80,7 @@ const Message = () => {
                     </Grid>
                 </Grid>
                 <Grid item xs={7}>
-                    <Grid>
+                    {/*<Grid>
                         <Paper elevation={1}>
                             <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                                 <ListItem alignItems="flex-start">
@@ -170,13 +171,9 @@ const Message = () => {
                                 </ListItem>
                             </List>
                         </Paper>
-                    </Grid>
+                    </Grid>*/}
                     <Grid>
-                        <TextField label="Message" variant="outlined" sx={{
-                            marginTop:"10px",
-                            width:"100%",
-                            backgroundColor: "white"
-                        }} />
+                        <Chat/>
                     </Grid>
                 </Grid>
             </Grid>
