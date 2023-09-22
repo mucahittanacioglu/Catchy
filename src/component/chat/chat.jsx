@@ -13,7 +13,7 @@ const Chat = () => {
     const [page, setPage] = useState(1);
     const [rowsPerPage] = useState(10);
     const messagesContainerRef = useRef(null);
-    const messageHeightLimit = 550;
+    const messageHeightLimit = 650;
 
     const handleSendMessage = () => {
         if (newMessage.trim() !== '') {

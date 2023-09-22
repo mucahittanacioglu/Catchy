@@ -1,9 +1,9 @@
-/*
-.loginPage {
-    margin-left: auto;
-    margin-right: auto;
+/*.customNav {
+    position: absolute;
+    left: 0;
+    margin-left: -12px;
 }*/
 
-/*#root {
-    width: 100%;
-}*/
+.profile {
+    margin-left: -20rem;
+}
