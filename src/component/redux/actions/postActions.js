@@ -8,6 +8,10 @@ export function createPost(typedPost) {
     return {type:actionTypes.CREATE_POST, payload:typedPost}
 }
 
+export function deletePost(deletedPost) {
+    return {type:actionTypes.DELETE_POST, payload:deletedPost}
+}
+
 export function login(jwt) {
     return {type:actionTypes.LOGIN, payload:jwt}
 }

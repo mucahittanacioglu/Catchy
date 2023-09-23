@@ -33,7 +33,7 @@ const Message = () => {
             >
                 <Grid item xs={5}>
                     <Grid>
-                        <Typography variant="h4" component="h2" className="text-center text-white">
+                        <Typography variant="h4" component="h2" className="text-center">
                             Members
                         </Typography>
                         <Paper square={false} elevation={1}>

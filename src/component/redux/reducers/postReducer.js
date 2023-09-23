@@ -14,6 +14,10 @@ export function createdPostReducer(state = [], action = {}) {
     switch (action.type) {
         case actionTypes.CREATE_POST:
             return [...state, action.payload];
+        case actionTypes.DELETE_POST: {
+            const leftoverPost = state.filter((state, i) => i !== action.payload);
+            return [...leftoverPost];
+        }
         default:
             return state;
     }

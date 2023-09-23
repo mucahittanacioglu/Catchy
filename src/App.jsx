@@ -1,5 +1,5 @@
 import './App.css'
-import CustomNav from './component/CustomNav'
+import CustomNav from './component/navigationbar/CustomNav.jsx'
 import {AiFillDashboard, AiFillHeart, AiOutlineNotification, AiOutlineUser} from "react-icons/ai"
 import {BsSearch} from "react-icons/bs";
 import {BiMessageAlt} from "react-icons/bi";

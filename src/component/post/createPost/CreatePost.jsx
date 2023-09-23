@@ -7,10 +7,15 @@ import {BsEmojiSmile} from "react-icons/bs";
 import {useRef, useState} from "react";
 import Picker from "@emoji-mart/react";
 import data from '@emoji-mart/data';
+import {MdOutlineDeleteForever} from "react-icons/md";
+import {createPost} from "../../redux/actions/postActions.js";
+import {createdPostReducer} from "../../redux/reducers/postReducer.js";
 
 const CreatePost = (props) => {
     const [value, setValue] = useState("")
     const maxChar = 175;
+
+
     /*const [valueFetch, setValueFetch] = useState(false);*/
 
     /*new Picker({
@@ -29,8 +34,8 @@ const CreatePost = (props) => {
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
     // For image
-    const [selectedFile, setSelectedFile] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
+    const [selectedFiles, setSelectedFiles] = useState([]);
+    const [imageUrls, setImageUrls] = useState([]);
     const fileInputRef = useRef(null);
     const handleEmoji = (emoji) => {
         setValue(value + emoji.native);
@@ -52,20 +57,40 @@ const CreatePost = (props) => {
         props.actions.setCounter(maxChar);
     }
 
-    // For upload a image.
+    // For upload an image.
     const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setSelectedFile(file);
+        const newFiles = Array.from(e.target.files);
+        setSelectedFiles((prevSelectedFiles) => [...prevSelectedFiles, ...newFiles]);
 
-        if(file) {
+        const newImageUrls = newFiles.map((file) => {
             const reader = new FileReader();
-            reader.onload = (e) => {
-                setImageUrl(e.target.result);
-            };
             reader.readAsDataURL(file);
-        } else {
-            setImageUrl('');
-        }
+            return new Promise((resolve) => {
+                reader.onload = (e) => resolve(e.target.result);
+            });
+        });
+
+        Promise.all(newImageUrls).then((urls) => {
+            setImageUrls((prevImageUrls) => [...prevImageUrls, ...urls]);
+        });
+
+    };
+
+    // For the delete image
+    const removeImage = (index) => {
+        const updatedSelectedFiles = [...selectedFiles];
+        updatedSelectedFiles.splice(index, 1);
+        setSelectedFiles(updatedSelectedFiles);
+
+        const updatedImageUrls = [...imageUrls];
+        updatedImageUrls.splice(index, 1);
+        setImageUrls(updatedImageUrls);
+    }
+
+    // For the delete posts
+
+    const removePost = (index) => {
+        props.actions.deletePost(index);
     }
 
 
@@ -110,24 +135,31 @@ const CreatePost = (props) => {
             </div>
             <div className="postManager">
                 <h4>Posts</h4>
-                {selectedFile && (
-                    <div className="postedImg">
+                {imageUrls.map((imageUrl, index) => (
+                    <div key={index} className="postedImg">
                         <img
-                            src={imageUrl}
-                            alt="Selected"
-                            style={{width:"300px", height:"200px"}}/>
+                        src={imageUrl}
+                        style={{width:'300px', height:'200px'}}/>
+                        <span className="deleteIcon" onClick={() => removeImage(index)}>
+                            <MdOutlineDeleteForever/>
+                        </span>
                     </div>
-                )}
-                {props.createdPost.map((post) => {
+                ))}
+                {props.createdPost.map((post, index) => {
                     return (
-                        <div key={post} className="postedDiv">
+                        <div key={index} className="postedDiv">
                             <span>
                                 <img
                                     src={props.profilePhoto}
                                     alt="person2"
                                     style={{width: 120, height: 120}}/>
                             </span>
-                            <div className="postText">{post}</div>
+                            <div className="postText">
+                                {post}
+                                <span className="deleteIcon" onClick={() => removePost(index)}>
+                                    <MdOutlineDeleteForever/>
+                                </span>
+                            </div>
                         </div>
                     )
                 })}
@@ -142,7 +174,8 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: {
             setCounter: bindActionCreators(postActions.setRemainingChars, dispatch),
-            setCreatedPost: bindActionCreators(postActions.createPost, dispatch)
+            setCreatedPost: bindActionCreators(postActions.createPost, dispatch),
+            deletePost: bindActionCreators(postActions.deletePost, dispatch)
         }
     };
 }

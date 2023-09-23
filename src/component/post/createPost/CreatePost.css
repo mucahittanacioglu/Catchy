@@ -18,6 +18,14 @@
     object-fit: contain;
 }
 
+.deleteIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: red;
+    cursor: pointer;
+}
+
 .icons {
     display: flex;
     flex-direction: column;
@@ -45,6 +53,7 @@
     border: 2px solid beige;
     margin-bottom: 10px;
     border-radius: 10px;
+    position: relative;
 }
 
 .postedImg {
@@ -52,6 +61,7 @@
     border-radius: 10px;
     width: 300px;
     height: 200px;
+    position: relative;
 }
 .postedImg img {
     border-radius: 10px;

@@ -20,11 +20,6 @@ const CustomNav = ({ li }) => {
       <ul className="navbar__list">
         {li.map((item, i) => (
           <div className="navbar__li-box" key={i}>
-            {/* <img
-              src={item[1]}
-              alt={item[1]}
-              style={{ paddingLeft: window === false ? 27 : 17 }}
-            /> */}
             <span style={{color:"white"}} >{item[1]}</span>
             <li
               className="navbar__li"
