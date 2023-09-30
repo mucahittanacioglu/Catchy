@@ -8,8 +8,6 @@ import {useRef, useState} from "react";
 import Picker from "@emoji-mart/react";
 import data from '@emoji-mart/data';
 import {MdOutlineDeleteForever} from "react-icons/md";
-import {createPost} from "../../redux/actions/postActions.js";
-import {createdPostReducer} from "../../redux/reducers/postReducer.js";
 
 const CreatePost = (props) => {
     const [value, setValue] = useState("")
@@ -111,11 +109,14 @@ const CreatePost = (props) => {
                               onChange={handleChange}
                               style={{width: "300px", height: "150px"}}
                               maxLength={maxChar}
-                              className="textArea"/>
+                              className="textArea"
+                            placeholder="You can enter your post here."/>
                 </div>
                 <div className="icons">
-                    <button onClick={handleSend}><AiOutlineSend className="icon"/></button>
-                    <button onClick={() => setShowEmojiPicker(!showEmojiPicker)}><BsEmojiSmile/></button>
+                    <AiOutlineSend onClick={handleSend} className="icon"/>
+                    {/*<button onClick={handleSend}><AiOutlineSend className="icon"/></button>*/}
+                    <BsEmojiSmile onClick={() => setShowEmojiPicker(!showEmojiPicker)} className="icon"/>
+                    {/*<button onClick={() => setShowEmojiPicker(!showEmojiPicker)}><BsEmojiSmile/></button>*/}
                     <input
                         type="file"
                         accept="image/*"
@@ -123,7 +124,8 @@ const CreatePost = (props) => {
                         onChange={handleFileChange}
                         ref={fileInputRef}
                     />
-                    <button onClick={() => fileInputRef.current.click()}><AiFillFileImage/></button>
+                    {/*<button onClick={() => fileInputRef.current.click()}><AiFillFileImage/></button>*/}
+                    <AiFillFileImage onClick={() => fileInputRef.current.click()} className="icon"/>
                     <div className="emojiContainer">
                         {showEmojiPicker && (
                             <Picker data={data} onEmojiSelect={handleEmoji}/>
@@ -134,7 +136,7 @@ const CreatePost = (props) => {
                 </div>
             </div>
             <div className="postManager">
-                <h4>Posts</h4>
+                <h4 style={{color:"white"}}>Posts</h4>
                 {imageUrls.map((imageUrl, index) => (
                     <div key={index} className="postedImg">
                         <img

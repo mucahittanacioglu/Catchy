@@ -5,7 +5,6 @@ import {BsSearch} from "react-icons/bs";
 import {BiMessageAlt} from "react-icons/bi";
 import 'react-bootstrap/dist/react-bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Col, Container, Row} from "react-bootstrap";
 import Login from "./component/login/login.jsx";
 import SignUp from "./component/sign-up/sign-up.jsx";
 import {Routes, Route, Link} from 'react-router-dom';
@@ -15,8 +14,7 @@ import Message from "./component/message/message.jsx";
 import Notifications from "./component/notifications/notifications.jsx";
 import {useState} from "react";
 import Settings from "./component/settings/settings.jsx";
-import {Grid} from "@mui/material";
-import Chat from "./component/chat/chat.jsx";
+import {Avatar, Grid} from "@mui/material";
 
 //TODO:Need Log-in and Sing-up page.
 function App() {
@@ -30,8 +28,8 @@ function App() {
         <>
             <Routes>
                 <Route path="/main" element={<Grid container>
-                    <Grid item xs={3}>
-                        {isActive ? (<Grid item xs={3}>
+                    <Grid item md={3}>
+                        {isActive ? (<Grid item md={3}>
                             <Notifications
                                 li={[
                                     ["Notifications", <AiOutlineNotification onClick={handleNotifications}/>],
@@ -59,21 +57,21 @@ function App() {
                             />
                         )}
                     </Grid>
-                    <Grid item className="createPost">
+                    <Grid item md={9} className="createPost">
                         <CreatePost/>
                     </Grid>
                 </Grid>}/>
                 <Route path="/" element={<div className="loginPage">
                         <Grid container>
-                            <Grid item xs={12}>
+                            <Grid item md={12}>
                                 <Login/>
                             </Grid>
                         </Grid>
                     </div>}/>
                 <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/profile" element={<Grid container spacing={-20}>
-                    <Grid item xs={3}>
-                        {isActive ? (<Grid item xs={3}>
+                    <Grid item lg={3}>
+                        {isActive ? (<Grid item md={3}>
                             <Notifications
                                 li={[
                                     ["Notifications", <AiOutlineNotification onClick={handleNotifications}/>],
@@ -101,13 +99,13 @@ function App() {
                             />
                         )}
                     </Grid>
-                    <Grid item className="profile">
+                    <Grid item lg={9} className="profile">
                         <Profile/>
                     </Grid>
                 </Grid>}/>
                 <Route path="messages" element={<Grid container spacing={-20}>
-                        <Grid item xs={3}>
-                            {isActive ? (<Grid item xs={3}>
+                        <Grid item lg={3}>
+                            {isActive ? (<Grid item lg={3}>
                                 <Notifications
                                     li={[
                                         ["Notifications", <AiOutlineNotification onClick={handleNotifications}/>],
@@ -135,11 +133,10 @@ function App() {
                                 />
                             )}
                         </Grid>
-                        <Grid item xs={9}>
+                        <Grid item lg={9}>
                             <Message/>
                         </Grid>
                     </Grid>}/>
-                <Route path="/chat" element={<Chat/>}/>
             </Routes>
         </>
     )

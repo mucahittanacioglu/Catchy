@@ -16,6 +16,10 @@
 .icon {
     font-size: 1.5rem;
     object-fit: contain;
+    margin-bottom: 0.5rem;
+    margin-left: 0.2rem;
+    cursor: pointer;
+    color: white;
 }
 
 .deleteIcon {
@@ -33,15 +37,17 @@
     flex: 1;
     width: 30px;
     margin-left: 1px;
+    color: white;
 }
 
-.icons button {
+/*.icons button {
     display: flex;
-    background-color: #ffffff;
     color: black;
     border: none;
     padding: 5px;
-}
+    width: 30px;
+    font-size: 20px;
+}*/
 
 .postManager {
     max-height: 40rem;
@@ -54,6 +60,7 @@
     margin-bottom: 10px;
     border-radius: 10px;
     position: relative;
+    width: 35rem;
 }
 
 .postedImg {
@@ -68,8 +75,9 @@
 }
 
 .postText {
-    max-width: 550px;
+    max-width: 25rem;
     word-wrap: break-word;
+    color: white;
 }
 
 .postedDiv img {

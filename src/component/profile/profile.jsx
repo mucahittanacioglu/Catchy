@@ -16,7 +16,7 @@ const Profile = () => {
     //TODO: güncellenmiş en son profil verilerini reduxa yaz
     return (
         <div className="profilePage ">
-            <MDBContainer className="py-5 justify-content-center align-items-center h-100 mx-5">
+            <MDBContainer className="py-5 justify-content-center align-items-center h-100 mx-5" style={{opacity:0.85}}>
                 <MDBRow>
                     <MDBCard>
                         <MDBCardBody className="text-black p-4">

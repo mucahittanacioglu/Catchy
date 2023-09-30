@@ -34,16 +34,6 @@ const ProfileFooter = () => {
                             <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
                                           alt="image 1" className="w-100 rounded-3"/>
                         </MDBCol>
-                        <MDBRow className="g-2">
-                            <MDBCol className="mb-2">
-                                <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                                              alt="image 1" className="w-100 rounded-3"/>
-                            </MDBCol>
-                            <MDBCol className="mb-2">
-                                <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                                              alt="image 1" className="w-100 rounded-3"/>
-                            </MDBCol>
-                        </MDBRow>
                     </>
                 )}
             </MDBRow>

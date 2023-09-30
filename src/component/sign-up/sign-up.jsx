@@ -20,7 +20,7 @@ const Login = () => {
 
                     <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
 
-                        <h1 className="my-5 display-3 fw-bold ls-tight px-3 text-center">
+                        <h1 className="my-5 display-3 fw-bold ls-tight px-3 text-center text-white">
                             Catchy <br />
                             <span className="text-primary">Sign up now!</span>
                         </h1>
@@ -37,7 +37,7 @@ const Login = () => {
                     <MDBCol md='6'>
 
                         <MDBCard className='my-5'>
-                            <MDBCardBody className='p-5'>
+                            <MDBCardBody className='p-5 rounded' style={{backgroundColor:"#000027"}}>
 
                                 <MDBRow>
                                     <MDBCol col='6'>
@@ -53,7 +53,7 @@ const Login = () => {
                                 <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
 
                                 <div className='d-flex justify-content-center mb-4'>
-                                    <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
+                                    <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Do you want to get notification via email?' />
                                 </div>
 
                                 <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>

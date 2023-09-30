@@ -44,20 +44,20 @@ const Login = (props) => {
 
                                 <div className="text-center">
                                     <img
-                                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                                        style={{width: '185px'}} alt="logo"/>
-                                    <h4 className="mt-1 mb-5 pb-1">Catchy</h4>
+                                        src="https://www.offidocs.com/images/logobirdblue.jpg"
+                                        style={{width: '185px', height: "250px"}} alt="logo"/>
+                                    <h4 className="mt-1 mb-5 pb-1 text-white">Catchy</h4>
                                 </div>
 
-                                <p>Please login to your account</p>
+                                <p className="text-white">Please login to your account</p>
 
 
                                 <MDBInput value={email} onChange={(e) => setEmail(e.target.value)} wrapperClass='mb-4'
-                                          label='Email address' id='form1' type='email'/>
+                                          label='Email address' id='form1' type='email' className="text-white"/>
 
                                 <MDBInput value={password} onChange={(e) => setPassword(e.target.value)}
                                           wrapperClass='mb-4'
-                                          label='Password' id='form2' type='password'/>
+                                          label='Password' id='form2' type='password' className="text-white"/>
 
 
                                 <div className="text-center pt-1 mb-5 pb-1">
@@ -67,9 +67,9 @@ const Login = (props) => {
                                 </div>
 
                                 <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
-                                    <p className="mb-0">Don't have an account?</p>
+                                    <p className="mb-0 text-white">Don't have an account?</p>
                                     <MDBBtn outline className='mx-2' color='danger'>
-                                        <Link to="/signup">Create Account</Link>
+                                        <Link to="/signup" >Create Account</Link>
                                     </MDBBtn>
                                 </div>
 
@@ -78,7 +78,7 @@ const Login = (props) => {
                         </MDBCol>
 
                         <MDBCol col='6' className="mb-5">
-                            <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4">
+                            <div className="d-flex flex-column  justify-content-center gradient-custom-2 h-100 mb-4 rounded" style={{opacity:0.5}}>
 
                                 <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                                     <h4 className="mb-4">Catchy!</h4>
