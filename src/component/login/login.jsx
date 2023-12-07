@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow} from 'mdb-react-ui-kit';
 import './login.css';
 import {Link} from "react-router-dom";
@@ -7,8 +7,8 @@ import {bindActionCreators} from "redux";
 import * as postActions from "../redux/actions/postActions.js";
 import {Grid} from "@mui/material";
 import axios from "axios";
-
-const BASE_API_URL = "http://localhost:8080/user/login"
+import { useNavigate  } from 'react-router-dom';
+const BASE_API_URL = "http://localhost:8080/api/auth/login"
 
 const Login = (props) => {
     const [email, setEmail] = useState("")
@@ -16,16 +16,20 @@ const Login = (props) => {
     const [data, setData] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-
+    const navigate = useNavigate();
     const handleLogin = () => {
         setLoading(true);
         axios.post(BASE_API_URL, {email, password})
             .then((response) => {
                 setLoading(false);
                 setData(response.data);
+                navigate("/main");
+                props.actions.setJwt(response.data)
+                console.log("Success")
             }).catch((err) => {
             setLoading(false);
             setError(err);
+            console.log("Fail")
         })
     }
 
