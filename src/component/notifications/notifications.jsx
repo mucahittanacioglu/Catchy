@@ -15,7 +15,8 @@ const Notifications = ({ li }) => {
     return (
         <nav className="navbar-menu" style={{ width: window === false ? 250 : 60 }}>
             <div className="burger" onClick={() => openClose()}>
-                <span className="burgerIcon"><CiMenuBurger/></span>
+                <span className="burgerIcon">{/*<CiMenuBurger/>*/}
+                    <img src="https://www.offidocs.com/images/logobirdblue.jpg" alt="" style={{width: '50px', height: "50px"}}/></span>
             </div>
             <ul className="navbar__list">
                 {li.map((item, i) => (

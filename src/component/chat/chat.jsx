@@ -6,7 +6,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import {Avatar, Divider, Pagination} from "@mui/material";
 import './chat.css';
-
 const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
@@ -76,14 +75,14 @@ const Chat = () => {
                     fullWidth
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
-                    sx={{marginTop:"10px"}}
+                    sx={{marginTop:"10px", /*position:"relative", width:"40rem", top:"80%"*/}}
                 />
                 <Button
                     variant="contained"
                     color="primary"
                     onClick={handleSendMessage}
                     className="sendButton"
-                    sx={{marginTop: "10px", width:"150px"}}
+                    sx={{marginTop: "10px" /*width:"150px", position:"relative" ,top:"86.5%"*/}}
                 >
                     Send
                 </Button>
@@ -94,6 +93,7 @@ const Chat = () => {
                     variant="outlined"
                     shape="rounded"
                     className="d-flex justify-content-center "
+                    /*sx={{position:"relative", top:"90%", left:"70%"}}*/
                 />
             </div>
         </div>

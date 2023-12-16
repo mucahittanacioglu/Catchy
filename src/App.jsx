@@ -29,8 +29,7 @@ function App() {
         <>
             <Routes>
 
-                <Route path="/main" element={<ProtectedRoute>
-                    <Grid container>
+                <Route path="/main" element={<Grid container>
                     <Grid item md={3}>
                         {isActive ? (
                             <Grid item md={3}>
@@ -64,9 +63,7 @@ function App() {
                     <Grid item md={9} className="createPost">
                         <CreatePost/>
                     </Grid>
-                </Grid>
-                </ProtectedRoute>}/>
-
+                </Grid>}/>
                 <Route path="/" element={<div className="loginPage">
                     <Grid container>
                         <Grid item md={12}>
