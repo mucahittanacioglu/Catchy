@@ -14,11 +14,12 @@ import {bindActionCreators} from "redux";
 const ProfileHeader = (props) => {
 
     const {isEditing} = props;
+    const {profileData} = props;
     const {profilePhoto} = props;
 
-    const [name, setName] = useState('Andy Horwitz');
-    const [city, setCity] = useState('New York');
-    const [backgroundColor, setBackgroundColor] = useState('#000');
+    const [name, setName] = useState(profileData.userName);
+    const [city, setCity] = useState(profileData.userCity);
+    const [backgroundColor, setBackgroundColor] = useState(profileData.bgColor);
     /*const [photo, setPhoto] = useState();*/
     /*const [newPhoto, setNewPhoto] = useState('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp');*/
     const uploadPhoto = (e) => {
@@ -47,7 +48,7 @@ const ProfileHeader = (props) => {
                             />
 
                             <MDBCardImage
-                                src={props.profilePhoto}
+                                src={profilePhoto}
                                 alt="Generic placeholder image"
                                 fluid
                                 className="mt-4 mb-2 img-thumbnail"
@@ -107,15 +108,15 @@ const ProfileHeader = (props) => {
             <div className="p-4 text-black" style={{backgroundColor: '#f8f9fa'}}>
                 <div className="d-flex justify-content-end text-center py-1">
                     <div>
-                        <MDBCardText className="mb-1 h5">253</MDBCardText>
+                        <MDBCardText className="mb-1 h5">{profileData.photos}</MDBCardText>
                         <MDBCardText className="small text-muted mb-0">Photos</MDBCardText>
                     </div>
                     <div className="px-3">
-                        <MDBCardText className="mb-1 h5">1026</MDBCardText>
+                        <MDBCardText className="mb-1 h5">{profileData.followers}</MDBCardText>
                         <MDBCardText className="small text-muted mb-0">Followers</MDBCardText>
                     </div>
                     <div>
-                        <MDBCardText className="mb-1 h5">478</MDBCardText>
+                        <MDBCardText className="mb-1 h5">{profileData.following}</MDBCardText>
                         <MDBCardText className="small text-muted mb-0">Following</MDBCardText>
                     </div>
                 </div>

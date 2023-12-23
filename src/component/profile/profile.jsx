@@ -11,20 +11,34 @@ import ProfileFooter from "./footer/profileFooter.jsx";
 import ProfileBody from "./body/profileBody.jsx";
 
 const Profile = () => {
+
+    const [profileData] = useState(
+        {
+            userName: "Andy Horwitz",
+            userCity:"Los Angelos",
+            photos: 253,
+            followers: 1025,
+            following: 478,
+            about:"About me",
+            bgColor:"#000000",
+            profilePhoto:"https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp",
+            ownProfile: true,
+        },
+    );
+
     const [isEditing, setIsEditing] = useState(false);
-    //TODO: child state leri update olduktan sonra burda tut
-    //TODO: güncellenmiş en son profil verilerini reduxa yaz
     return (
         <div className="profilePage ">
             <MDBContainer className="py-5 justify-content-center align-items-center h-100 mx-5" style={{opacity:0.85}}>
                 <MDBRow>
                     <MDBCard>
                         <MDBCardBody className="text-black p-4">
-                            <ProfileHeader isEditing={isEditing}/>
-                            <ProfileBody isEditing={isEditing}/>
+                            <ProfileHeader isEditing={isEditing} profileData={profileData}/>
+                            <ProfileBody isEditing={isEditing} profileData={profileData}/>
                             <ProfileFooter/>
                             {
-                                isEditing ? (
+                                profileData.ownProfile &&
+                                (isEditing ? (
                                     <MDBBtn outline color="success" onClick={() => setIsEditing(false)}
                                             style={{height: '36px', overflow: 'visible'}}>
                                         Update profile
@@ -33,7 +47,7 @@ const Profile = () => {
                                     <MDBBtn outline color="dark" onClick={() => setIsEditing(true)}
                                             style={{height: '36px', overflow: 'visible'}}>
                                         Edit profile
-                                    </MDBBtn>)
+                                    </MDBBtn>))
                             }
                         </MDBCardBody>
                     </MDBCard>

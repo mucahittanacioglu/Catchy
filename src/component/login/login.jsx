@@ -17,6 +17,7 @@ const Login = (props) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+
     const handleLogin = () => {
         setLoading(true);
         axios.post(BASE_API_URL, {email, password})
@@ -67,7 +68,7 @@ const Login = (props) => {
                                 <div className="text-center pt-1 mb-5 pb-1">
                                     <MDBBtn className="mb-4 w-100 gradient-custom-2"
                                             onClick={handleLogin}>Login</MDBBtn>
-                                    <a className="text-muted" href="#!">Forgot password?</a>
+                                    <a className="text-blue text-decoration-underline" href="#!">Forgot password?</a>
                                 </div>
 
                                 <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">

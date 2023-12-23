@@ -19,6 +19,7 @@ import axios from "axios";
 
 const API_URL_CONVERSATION = "http://localhost:8080/api/conversation/createConversation";
 const API_URL_USER = "http://localhost:8080/api/auth/getFriends";
+
 const Message = () => {
     const [isActive, setIsActive] = useState(false);
     const [conversationId, setConversationId] = useState(-1);
@@ -133,7 +134,7 @@ const Message = () => {
                     }}/>
                 }
             </Grid>
-        </Box>
+       </Box>
 
 
     );

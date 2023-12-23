@@ -61,22 +61,22 @@ const SignUp = () => {
 
                                 <MDBRow>
                                     <MDBCol col='6'>
-                                        <MDBInput wrapperClass='mb-4' label='First name' value={firstName}
+                                        <MDBInput className="text-white" wrapperClass='mb-4' label='First name' value={firstName}
                                                   onChange={e => setFirstName(e.target.value)} id='form1' type='text'/>
                                     </MDBCol>
 
                                     <MDBCol col='6'>
-                                        <MDBInput wrapperClass='mb-4' label='Last name' value={lastName}
+                                        <MDBInput className="text-white" wrapperClass='mb-4' label='Last name' value={lastName}
                                                   onChange={e => setLastName(e.target.value)} id='form1' type='text'/>
                                     </MDBCol>
                                 </MDBRow>
 
-                                <MDBInput wrapperClass='mb-4' label='Email' value={email}
+                                <MDBInput className="text-white" wrapperClass='mb-4' label='Email' value={email}
                                           onChange={e => setEmail(e.target.value)} id='form1' type='email'/>
-                                <MDBInput wrapperClass='mb-4' label='Password' value={password}
+                                <MDBInput className="text-white" wrapperClass='mb-4' label='Password' value={password}
                                           onChange={e => setPassword(e.target.value)} id='form1' type='password'/>
 
-                                <div className='d-flex justify-content-center mb-4'>
+                                <div className='d-flex justify-content-center mb-4 text-white'>
                                     <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault'
                                                  label='Do you want to get notification via email?'/>
                                 </div>
